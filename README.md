@@ -28,7 +28,10 @@ pip install streamlit
 pip install plotly
 pip install numpy
 pip install pandas
-pip install pickle
+pip install scikit-learn
+pip install scikit-learn-intelex
+pip install openpyxl
+pip install hiclass
 ```
 ### Running the App
 ```
