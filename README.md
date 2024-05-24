@@ -30,4 +30,7 @@ streamlit run https://raw.githubusercontent.com/adamzainuri01/HMTSC_ESP_Predicti
 - pandas
 - numpy
 - plotly
-- pickle
+- scikit-learn
+- scikit-learn-intelex
+- openpyxl
+- hiclass
