@@ -8,6 +8,16 @@ b. Shows different types of graphs, including the original sensors, derivatives 
 c. All graphs and charts are interactive.  
 d. Shows statistics of the most likely prediction and least likely predictions.
 
+### Data Format
+The input data format should have 5 columns in order, which are named UniqueID, DateTillFail, IntakePressure, DischargePressure, IntakeTemp, MotorTemp, VibrationX. The explanation for each columns is as follows:
+- UniqueID            : the unique identifier of ESP well.
+- DateTillFail        : the number of days until the ESP will fail, which serves as an indicator of time for the data.
+- IntakePressure      : sensor value for intake pressure (psi).
+- DischargePressure   : sensor value for discharge pressure (psi).
+- IntakeTemp          : sensor value for intake temperature (degF).
+- MotorTemp           : sensor value for motor temperature (degF).
+- VibrationX          : sensor value for vibration X (G).
+
 ## Live App
 To view the application, simply go to this website [here](https://hmtsc-esp-failure-prediction.streamlit.app/). This application is hosted by [streamlit](https://streamlit.io).
 
