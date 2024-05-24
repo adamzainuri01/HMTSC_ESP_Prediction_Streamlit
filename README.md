@@ -1,5 +1,4 @@
 # Streamlit Hierarchical Multivariate Time Series Classification for ESP Failure
-A streamlit script for a web-based application to facilitate the use of predicting ESP failure information
 
 ## General Information
 A simple [streamlit](https://streamlit.io) app to predict information regarding ESP Failure. This application has the following feature:  
