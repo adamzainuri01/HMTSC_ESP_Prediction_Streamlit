@@ -186,8 +186,51 @@ if upload_well:
 
         ll.plotly_chart(fig,use_container_width = True)
 
-    st.markdown("""<style>.stRadio [role=radiogroup]{align-items: center;justify-content: center;}</style>""",unsafe_allow_html=True)
-    st.markdown(""" <style>
+st.markdown("""<style>.stRadio [role=radiogroup]{align-items: center;justify-content: center;}</style>""",unsafe_allow_html=True)
+st.markdown(""" <style>
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     </style> """, unsafe_allow_html=True)
+with st.sidebar:
+    css_style = """
+        <style>
+            .sidebar-text {
+                line-height: 1.5; /* Adjust the value as needed */
+            }
+        </style>
+        """
+    st.markdown(css_style, unsafe_allow_html=True)
+
+    st.markdown('<p style="font-family: Roboto; font-size: 20px; text-align: left;"><b>General Information</b></p>', unsafe_allow_html=True)
+    st.write("A simple streamlit app to predict information regarding ESP Failure. This application has the following feature:")
+    st.markdown("""<ul class=\"sidebar-text\"><li>Accepts multiple well inputs, either in the same Excel file or different Excel file.</li>
+        <li>Shows different types of graphs, including the original sensors, derivatives of the sensors, rolling means of the sensors, and directions of the sensors.</li>
+        <li>All graphs and charts are interactive.</li>
+        <li>Shows statistics of the most likely prediction and least likely predictions.</li>
+        </ul>""", unsafe_allow_html=True)
+
+    st.markdown('<p style="font-family: Roboto; font-size: 20px; text-align: left;"><b>Data Format</b></p>', unsafe_allow_html=True)
+    st.write("The input data format should have 5 columns in order, which are named UniqueID, DateTillFail, IntakePressure, DischargePressure, IntakeTemp, MotorTemp, VibrationX. The explanation for each columns is as follows:")
+    st.markdown("""<ul class="sidebar-text"><li>UniqueID : the unique identifier of ESP well.</li>
+        <li>DateTillFail : the number of days until the ESP will fail, which serves as an indicator of time for the data.</li>
+        <li>IntakePressure : sensor value for intake pressure (psi).</li>
+        <li>DischargePressure : sensor value for discharge pressure (psi).</li>
+        <li>IntakeTemp : sensor value for intake temperature (degF).</li>
+        <li>MotorTemp : sensor value for motor temperature (degF).</li>
+        <li>VibrationX : sensor value for vibration X (G).</li>
+        </ul>""", unsafe_allow_html=True)
+
+    data = np.random.randn(5, 6)
+    columns = ["DateTillFail", "IntakePressure", "DischargePressure", "IntakeTemp", "MotorTemp", "VibrationX"]
+    df = pd.DataFrame(data, columns=columns)
+    df.insert(0, 'UniqueID', 'WellA')
+
+    st.dataframe(df, hide_index=True)
+    st.markdown(
+        """
+        <div style="margin-top: -20px; font-size: 12px;">
+            *The numbers in this DataFrame are random.
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
